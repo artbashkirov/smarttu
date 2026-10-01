@@ -21,4 +21,4 @@ export const POPUP_SHEET = {
 } as const
 
 export const MORPH_MS = 520
-export const PAUSE_BEFORE_POPUP_MS = 1000
+export const PAUSE_BEFORE_POPUP_MS = 500

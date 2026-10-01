@@ -38,7 +38,7 @@ const SETTLE_ZONE_PX = 78
 /** Soft glide into center — scales inversely with ribbon speed */
 const SETTLE_DURATION_MS = Math.round((1100 * 60) / BASE_SPEED_PX_PER_SEC)
 
-export const PAUSE_BEFORE_POPUP_MS = 1000
+export const PAUSE_BEFORE_POPUP_MS = 500
 
 function easeInOut(t: number) {
   return t * t * (3 - 2 * t)
