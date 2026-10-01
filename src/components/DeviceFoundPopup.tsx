@@ -132,14 +132,15 @@ export default function DeviceFoundPopup({
                 (settled || phase === 'closing') && !heroPinned ? ' is-shown' : ''
               }`}
               src={KETTLE_IMAGE}
-              alt="Электрический чайник Tuvio Semble"
+              alt="Чайник Tuvio Semble"
               draggable={false}
             />
           </div>
 
-          <p className="device-found__name">
-            Электрический чайник Tuvio Semble, TKP1717S
-          </p>
+          <div className="device-found__name">
+            <p className="device-found__name-title">Чайник Tuvio Semble</p>
+            <p className="device-found__name-model">TKP1717S</p>
+          </div>
 
           <button
             type="button"

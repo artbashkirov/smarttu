@@ -123,19 +123,38 @@
 
 .device-found__name {
   position: absolute;
-  left: 50%;
+  left: 49px;
   top: 516px;
-  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
   margin: 0;
   width: 280px;
+  text-align: center;
+}
+
+.device-found__name-title,
+.device-found__name-model {
+  margin: 0;
+  width: 100%;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
   letter-spacing: -0.145px;
-  color: #000;
   text-align: center;
   font-feature-settings: 'lnum' 1, 'pnum' 1;
+}
+
+.device-found__name-title {
+  font-size: 16px;
+  line-height: 24px;
+  color: #202329;
+}
+
+.device-found__name-model {
+  font-size: 13px;
+  line-height: 16px;
+  color: #626873;
 }
 
 .device-found__connect {

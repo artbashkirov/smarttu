@@ -27,7 +27,7 @@ function DeviceImage({
   )
 }
 
-const BASE_SPEED_PX_PER_SEC = 60
+const BASE_SPEED_PX_PER_SEC = 66
 const SCALE_EDGE = 0.88
 const SCALE_CENTER = 1
 const OPACITY_EDGE = 0.5
@@ -35,8 +35,8 @@ const OPACITY_CENTER = 1
 const CENTER_SPEED_FACTOR = 0.62
 /** Start settle only once kettle is well on-screen (later than edge) */
 const SETTLE_ZONE_PX = 78
-/** Soft glide into center */
-const SETTLE_DURATION_MS = 1100
+/** Soft glide into center — scales inversely with ribbon speed */
+const SETTLE_DURATION_MS = Math.round((1100 * 60) / BASE_SPEED_PX_PER_SEC)
 
 export const PAUSE_BEFORE_POPUP_MS = 1000
 
@@ -243,10 +243,13 @@ export default function DeviceCarousel({
           (1 - CENTER_SPEED_FACTOR) * easeInOut(minNormDist)
         const currentSpeed = BASE_SPEED_PX_PER_SEC * speedFactor
         const distance = Math.abs(settleTo - settleFrom)
-        // easeOutCubic: v(0) = 3 * distance / duration
+        // easeOutCubic: v(0) = 3 * distance / durationSec → durationMs
+        const matchedMs = Math.round(
+          (3000 * distance) / Math.max(currentSpeed, 1),
+        )
         settleDuration = Math.max(
-          600,
-          Math.min(1600, (3 * distance) / Math.max(currentSpeed, 1)),
+          Math.round(SETTLE_DURATION_MS * 0.85),
+          Math.min(Math.round(SETTLE_DURATION_MS * 1.15), matchedMs),
         )
       }
 
