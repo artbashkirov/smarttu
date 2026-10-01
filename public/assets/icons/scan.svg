@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="24px / i24_scanCode">
+<g id=" ">
+<path d="M3 6.99999C3 4.79085 4.79086 2.99999 7 2.99999H10V4.99999H7C5.89543 4.99999 5 5.89542 5 6.99999V9.99999H3V6.99999Z" fill="#202329"/>
+<path d="M19 17V14H21V17C21 19.2091 19.2091 21 17 21H14V19H17C18.1046 19 19 18.1046 19 17Z" fill="#202329"/>
+<path d="M14 4.99999H17C18.1046 4.99999 19 5.89542 19 6.99999V9.99999H21V6.99999C21 4.79085 19.2091 2.99999 17 2.99999H14V4.99999Z" fill="#202329"/>
+<path d="M5 14L5 17C5 18.1046 5.89543 19 7 19H10V21H7C4.79086 21 3 19.2091 3 17V14H5Z" fill="#202329"/>
+<path d="M7 8H9V16H7V8Z" fill="#202329"/>
+<path d="M10 8H11V16H10V8Z" fill="#202329"/>
+<path d="M15 8H17V16H15V8Z" fill="#202329"/>
+<path d="M12 8H14V16H12V8Z" fill="#202329"/>
+</g>
+</g>
+</svg>

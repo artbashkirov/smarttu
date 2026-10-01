@@ -1,0 +1,42 @@
+.device-carousel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(50% - 100px);
+  height: 200px;
+  overflow: hidden;
+  pointer-events: none;
+  touch-action: none;
+  user-select: none;
+}
+
+.device-carousel__track {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: max-content;
+  height: 200px;
+  will-change: transform;
+}
+
+.device-carousel__item {
+  flex: 0 0 auto;
+  height: 200px;
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+.device-carousel__item.is-ghost {
+  opacity: 0 !important;
+  filter: none !important;
+}
+
+.device-carousel__img {
+  display: block;
+  height: 200px;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
