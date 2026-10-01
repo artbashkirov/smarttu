@@ -115,7 +115,7 @@ export default function DeviceCarousel({
           `.device-carousel__item[data-device-id="${KETTLE_DEVICE_ID}"]`,
         )
         .forEach((item) => {
-          const img = item.querySelector('img')
+          const img = item.querySelector<HTMLImageElement>('img')
           if (!img) return
           const r = img.getBoundingClientRect()
           const dist = Math.abs(r.left + r.width / 2 - centerX)
@@ -126,7 +126,8 @@ export default function DeviceCarousel({
         })
 
       if (!best) return null
-      const r = best.getBoundingClientRect()
+      const kettleImg = best
+      const r = kettleImg.getBoundingClientRect()
       return {
         left: r.left - screenBox.left,
         top: r.top - screenBox.top,
