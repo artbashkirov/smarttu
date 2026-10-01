@@ -110,24 +110,22 @@ export default function DeviceCarousel({
       let best: HTMLImageElement | null = null
       let bestDist = Infinity
 
-      track
-        .querySelectorAll<HTMLElement>(
-          `.device-carousel__item[data-device-id="${KETTLE_DEVICE_ID}"]`,
-        )
-        .forEach((item) => {
-          const img = item.querySelector<HTMLImageElement>('img')
-          if (!img) return
-          const r = img.getBoundingClientRect()
-          const dist = Math.abs(r.left + r.width / 2 - centerX)
-          if (dist < bestDist) {
-            bestDist = dist
-            best = img
-          }
-        })
+      const items = track.querySelectorAll<HTMLElement>(
+        `.device-carousel__item[data-device-id="${KETTLE_DEVICE_ID}"]`,
+      )
+      for (const item of items) {
+        const img = item.querySelector<HTMLImageElement>('img')
+        if (!img) continue
+        const box = img.getBoundingClientRect()
+        const dist = Math.abs(box.left + box.width / 2 - centerX)
+        if (dist < bestDist) {
+          bestDist = dist
+          best = img
+        }
+      }
 
-      if (!best) return null
-      const kettleImg = best
-      const r = kettleImg.getBoundingClientRect()
+      if (best === null) return null
+      const r = best.getBoundingClientRect()
       return {
         left: r.left - screenBox.left,
         top: r.top - screenBox.top,
@@ -143,8 +141,9 @@ export default function DeviceCarousel({
       let bestDist = Infinity
       let signed: number | null = null
 
-      track.querySelectorAll<HTMLElement>('.device-carousel__item').forEach((item) => {
-        if (item.dataset.deviceId !== KETTLE_DEVICE_ID) return
+      const items = track.querySelectorAll<HTMLElement>('.device-carousel__item')
+      for (const item of items) {
+        if (item.dataset.deviceId !== KETTLE_DEVICE_ID) continue
         const itemCenter =
           trackRect.left + item.offsetLeft + item.offsetWidth / 2
         const d = itemCenter - centerX
@@ -152,7 +151,7 @@ export default function DeviceCarousel({
           bestDist = Math.abs(d)
           signed = d
         }
-      })
+      }
       return signed
     }
 
